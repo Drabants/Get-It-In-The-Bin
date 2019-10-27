@@ -7,7 +7,8 @@ public class PlateController : MonoBehaviour
     [SerializeField]
     private GameObject tableObj;
 
-    private float movementSpeed = 4f;
+    private float movementSpeed = 8f;
+    bool centered = false;
 
     // Start is called before the first frame update
     void Start()
@@ -18,24 +19,39 @@ public class PlateController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        MoveDown();
+        if (centered)
+        {
+            MoveRight();
+        }
     }
 
     void MoveDown()
     {
         if (transform.position.z > tableObj.transform.position.z)
         {
-            transform.Translate(Vector3.back * Time.deltaTime * movementSpeed);
+            transform.position += transform.up * Time.deltaTime *movementSpeed;
+        }
+        else
+        {
+            //centered = true;
         }
     }
 
     void MoveLeft()
     {
-
+        if (transform.position.x > -10)
+        {
+            transform.position += -transform.right * Time.deltaTime * movementSpeed;
+        }
     }
 
     void MoveRight()
     {
+        if (transform.position.x < 10)
+        {
+            transform.position += transform.right * Time.deltaTime * movementSpeed;
+        }
 
     }
 }
