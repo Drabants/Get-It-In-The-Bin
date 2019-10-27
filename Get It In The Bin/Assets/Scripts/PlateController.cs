@@ -18,9 +18,24 @@ public class PlateController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(transform.position.z > tableObj.transform.position.z)
+
+    }
+
+    void MoveDown()
+    {
+        if (transform.position.z > tableObj.transform.position.z)
         {
             transform.Translate(Vector3.back * Time.deltaTime * movementSpeed);
         }
+    }
+
+    void MoveLeft()
+    {
+
+    }
+
+    void MoveRight()
+    {
+
     }
 }
