@@ -9,20 +9,39 @@ public class PlateController : MonoBehaviour
 
     private float movementSpeed = 8f;
     bool centered = false;
+    bool right = false;
+    bool left = false;
 
+    public delegate void PlateIsCenteredDelegate();
+    public PlateIsCenteredDelegate plateIsCenteredEvent;
+
+    private SwipeDetector swipeDetecor;
     // Start is called before the first frame update
     void Start()
     {
+        swipeDetecor = FindObjectOfType<SwipeDetector>();
+
         transform.position = new Vector3(transform.position.x, transform.position.y, 10f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        MoveDown();
-        if (centered)
+        if (!centered)
+        { 
+         MoveDown();
+        }
+        else
         {
-            MoveRight();
+            if (left)
+            {
+                MoveLeft();
+            }
+            if (right)
+            {
+                MoveRight();
+            }
+
         }
     }
 
@@ -34,7 +53,9 @@ public class PlateController : MonoBehaviour
         }
         else
         {
-            //centered = true;
+            swipeDetecor.SwipeLeftEvent += SwipedLeft;
+            swipeDetecor.SwipeRightEvent += SwipedRight;
+            centered = true;
         }
     }
 
@@ -53,5 +74,21 @@ public class PlateController : MonoBehaviour
             transform.position += transform.right * Time.deltaTime * movementSpeed;
         }
 
+    }
+
+    void SwipedRight()
+    {
+        if (!right && !left)
+        {
+            right = true;
+        }
+    }
+
+    void SwipedLeft()
+    {
+        if (!right && !left)
+        {
+            left = true;
+        }
     }
 }
