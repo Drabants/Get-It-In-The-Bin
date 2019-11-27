@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3010020207776296606}
   - component: {fileID: -5222678743931128000}
   m_Layer: 0
-  m_Name: platePrefab
+  m_Name: PlatePrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,3 +96,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tableObj: {fileID: 5945171711216883534, guid: edd828273c5b6544badde02999ffe968,
     type: 3}
+  movementSpeed: 12

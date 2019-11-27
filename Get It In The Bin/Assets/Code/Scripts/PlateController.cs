@@ -7,20 +7,23 @@ public class PlateController : MonoBehaviour
     [SerializeField]
     private GameObject tableObj;
 
+    [SerializeField]
     private float movementSpeed = 8f;
-    bool centered = false;
-    bool right = false;
-    bool left = false;
+    bool centered;
+    bool right;
+    bool left;
 
     public delegate void PlateIsCenteredDelegate();
     public PlateIsCenteredDelegate plateIsCenteredEvent;
+
+    public delegate void PlateIsOutOfBoundsDelegate();
+    public PlateIsOutOfBoundsDelegate plateIsOutOfBoundsEvent;
 
     private SwipeDetector swipeDetecor;
     // Start is called before the first frame update
     void Start()
     {
         swipeDetecor = FindObjectOfType<SwipeDetector>();
-
         transform.position = new Vector3(transform.position.x, transform.position.y, 10f);
     }
 
@@ -65,6 +68,10 @@ public class PlateController : MonoBehaviour
         {
             transform.position += -transform.right * Time.deltaTime * movementSpeed;
         }
+        else
+        {
+            plateIsOutOfBoundsEvent?.Invoke();
+        }
     }
 
     void MoveRight()
@@ -72,6 +79,10 @@ public class PlateController : MonoBehaviour
         if (transform.position.x < 10)
         {
             transform.position += transform.right * Time.deltaTime * movementSpeed;
+        }
+        else
+        {
+            plateIsOutOfBoundsEvent?.Invoke();
         }
 
     }
