@@ -9,9 +9,14 @@ public class PlateController : MonoBehaviour
 
     [SerializeField]
     private float movementSpeed = 8f;
-    bool centered;
-    bool right;
-    bool left;
+
+    [SerializeField]
+    float plateCenteredByZ = 1f;
+
+    private bool centered;
+    private bool right;
+    private bool left;
+    private SwipeDetector swipeDetecor;
 
     public delegate void PlateIsCenteredDelegate();
     public PlateIsCenteredDelegate plateIsCenteredEvent;
@@ -19,15 +24,14 @@ public class PlateController : MonoBehaviour
     public delegate void PlateIsOutOfBoundsDelegate();
     public PlateIsOutOfBoundsDelegate plateIsOutOfBoundsEvent;
 
-    private SwipeDetector swipeDetecor;
-    // Start is called before the first frame update
+
+
     void Start()
     {
         swipeDetecor = FindObjectOfType<SwipeDetector>();
         transform.position = new Vector3(transform.position.x, transform.position.y, 10f);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!centered)
@@ -50,7 +54,7 @@ public class PlateController : MonoBehaviour
 
     void MoveDown()
     {
-        if (transform.position.z > tableObj.transform.position.z)
+        if (transform.position.z > plateCenteredByZ)
         {
             transform.position += transform.up * Time.deltaTime *movementSpeed;
         }
