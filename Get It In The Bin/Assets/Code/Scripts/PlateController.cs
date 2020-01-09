@@ -13,6 +13,7 @@ public class PlateController : MonoBehaviour
     [SerializeField]
     float plateCenteredByZ = 1f;
 
+    private bool goodPlate;
     private bool centered;
     private bool right;
     private bool left;
@@ -24,12 +25,36 @@ public class PlateController : MonoBehaviour
     public delegate void PlateIsOutOfBoundsDelegate();
     public PlateIsOutOfBoundsDelegate plateIsOutOfBoundsEvent;
 
+    public delegate void CorrectChoiceDelegate();
+    public CorrectChoiceDelegate correctChoiceEvent;
+
+    public delegate void IncorrectChoiceDelegate();
+    public IncorrectChoiceDelegate incorrectChoiceEvent;
 
 
     void Start()
     {
         swipeDetecor = FindObjectOfType<SwipeDetector>();
         transform.position = new Vector3(transform.position.x, transform.position.y, 10f);
+        SetPlateState();
+    }
+
+    private void SetPlateState()
+    {
+        int rando = Random.Range(0, 2);
+        Debug.Log(rando);
+        if (rando == 1)
+        {
+            goodPlate = false;
+            var render = this.GetComponent<Renderer>();
+            render.material.SetColor("_Color", Color.red);
+        }
+        else
+        {
+            goodPlate = true;
+            var render = this.GetComponent<Renderer>();
+            render.material.SetColor("_Color", Color.green);
+        }
     }
 
     void Update()
@@ -74,6 +99,17 @@ public class PlateController : MonoBehaviour
         }
         else
         {
+            if (!goodPlate)
+            {
+                correctChoiceEvent?.Invoke();
+                Debug.Log("You chose correctly");
+            }
+            else
+            {
+                //Decrease lives here
+                incorrectChoiceEvent?.Invoke();
+                Debug.Log("YOU THREW OUT A GOOD PLATE DUMMY");
+            }
             plateIsOutOfBoundsEvent?.Invoke();
         }
     }
@@ -86,6 +122,17 @@ public class PlateController : MonoBehaviour
         }
         else
         {
+            if (goodPlate)
+            {
+                correctChoiceEvent?.Invoke();
+                Debug.Log("You chose correctly");
+            }
+            else
+            {
+                //Decrease lives here
+                incorrectChoiceEvent?.Invoke();
+                Debug.Log("YOU SERVED A BAD PLATE!!!!");
+            }
             plateIsOutOfBoundsEvent?.Invoke();
         }
 

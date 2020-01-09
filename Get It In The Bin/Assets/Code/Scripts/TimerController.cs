@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class TimerController : MonoBehaviour
 {
+    //Serialize these later
     public int countdownTimer;
     public Text countdownDisplay;
 
