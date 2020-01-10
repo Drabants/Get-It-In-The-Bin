@@ -11,6 +11,14 @@ public class GameManager : MonoBehaviour
     private GameObject plate;
     [SerializeField]
     private Text scoreText;
+    [SerializeField]
+    private Image heart0;
+    [SerializeField]
+    private Image heart1;
+    [SerializeField]
+    private Image heart2;
+    public Sprite fullHeart;
+    public Sprite emptyHeart;
     private PlateController plateController;
     private bool plateExists = false;
     GameObject plateClone;
@@ -57,13 +65,23 @@ public class GameManager : MonoBehaviour
     void DecreaseLives()
     {
         lives--;
-        //check for 0 lives here
         DisplayLives();
     }
 
     private void DisplayLives()
     {
-        throw new NotImplementedException();
+        switch (lives)
+        {
+            case 0:
+                heart0.sprite = emptyHeart;
+                break;
+            case 1:
+                heart1.sprite = emptyHeart;
+                break;
+            case 2:
+                heart2.sprite = emptyHeart;
+                break;
+        }
     }
 
     void DestroyPlate()

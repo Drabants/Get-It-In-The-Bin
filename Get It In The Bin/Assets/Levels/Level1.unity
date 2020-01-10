@@ -120,6 +120,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &380516519 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8775069379870830149, guid: 56463a935888b044a876250ff7819f16,
+    type: 3}
+  m_PrefabInstance: {fileID: 8994358651468464889}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &445505335
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,6 +243,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &731723159 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8603113367401272564, guid: 56463a935888b044a876250ff7819f16,
+    type: 3}
+  m_PrefabInstance: {fileID: 8994358651468464889}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &983442127
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,6 +528,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1390666022 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 171454712363672283, guid: 56463a935888b044a876250ff7819f16,
+    type: 3}
+  m_PrefabInstance: {fileID: 8994358651468464889}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1459875065 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 270923706, guid: 56463a935888b044a876250ff7819f16,
@@ -522,6 +558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9568c6a476707704fbbd914cb1097992, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ScoreText: {fileID: 0}
 --- !u!114 &1459875069 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 270923710, guid: 56463a935888b044a876250ff7819f16,
@@ -780,6 +817,33 @@ PrefabInstance:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 1459875069}
+    - target: {fileID: 1695087015887655144, guid: d047057c2fb811541af01d0823f20ca4,
+        type: 3}
+      propertyPath: heart0
+      value: 
+      objectReference: {fileID: 731723159}
+    - target: {fileID: 1695087015887655144, guid: d047057c2fb811541af01d0823f20ca4,
+        type: 3}
+      propertyPath: heart1
+      value: 
+      objectReference: {fileID: 1390666022}
+    - target: {fileID: 1695087015887655144, guid: d047057c2fb811541af01d0823f20ca4,
+        type: 3}
+      propertyPath: heart2
+      value: 
+      objectReference: {fileID: 380516519}
+    - target: {fileID: 1695087015887655144, guid: d047057c2fb811541af01d0823f20ca4,
+        type: 3}
+      propertyPath: fullHeart
+      value: 
+      objectReference: {fileID: 21300000, guid: fed24bd82cefc0c4a8ef64dab6231b53,
+        type: 3}
+    - target: {fileID: 1695087015887655144, guid: d047057c2fb811541af01d0823f20ca4,
+        type: 3}
+      propertyPath: emptyHeart
+      value: 
+      objectReference: {fileID: 21300002, guid: fed24bd82cefc0c4a8ef64dab6231b53,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d047057c2fb811541af01d0823f20ca4, type: 3}
 --- !u!1001 &5945171711180256883
@@ -1187,5 +1251,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1025863763480126473, guid: 56463a935888b044a876250ff7819f16,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8661387926966782173, guid: 56463a935888b044a876250ff7819f16,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3546166831620500828, guid: 56463a935888b044a876250ff7819f16,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8603113367401272564, guid: 56463a935888b044a876250ff7819f16,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fed24bd82cefc0c4a8ef64dab6231b53,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56463a935888b044a876250ff7819f16, type: 3}
